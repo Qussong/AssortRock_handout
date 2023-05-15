@@ -1,0 +1,23 @@
+[23/05/15]
+
+[자동완성]
+- if문, for문 자동완성 방법 : if/for + tab
+- f12를 누르면 해당 키워드의 정의로 이동한다.
+
+[size_t]
+- typedef unsigned __int64 size_t;
+- typedef (= typedefine) : type을 새롭게 정의한다는 의미, 불편함을 완화 해준다.
+	ex) typedef int Sample
+		Sample num = 10;	// Sample == int
+- unsigned : 양수전용으로 변경된다.
+- __int64 : 8Byte 정수형 타입 (= long long)
+- long : 4Byte 정수형 타입
+
+[생성자]
+- 구조체의 변수들을 초기화 하는 위치
+	하나하나 값을 대입해주는건 좋지 않은 형태이다. (가독성저하)
+	
+[버퍼(buffer)]
+- http://www.tcpschool.com/c/c_io_console
+- 키보드 입력이 있을 때마다 한 문자씩 버퍼로 전송함
+- 버퍼가 가득 차거나 개행 문자가 나타나면, 버퍼의 내용을 한번에 전송한다.
