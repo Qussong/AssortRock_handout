@@ -58,3 +58,25 @@ int main(void)
 	test(arr);
 }
 - 그냥 "int (*ptr)[3]" 대신에 "int arr[2][3]" 사용하자
+
+ex)
+void Sample(int arr2D[2][2])
+{
+	cout << arr2D[0][0];
+	cout << arr2D[0][1];
+	cout << arr2D[1][0];
+	cout << arr2D[1][1];
+}
+
+int main(void)
+{
+	int arr[2][2] =
+	{
+		{1,2},
+		{3,4}
+	};
+
+	Sample(arr);
+
+	return 0;
+}
