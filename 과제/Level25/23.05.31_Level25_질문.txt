@@ -1,0 +1,21 @@
+[질문]
+
+--- [Level25] ---
+
+[문제3]
+1. 
+struct Node
+{
+	Node() : left(nullptr), right(nullptr)
+	{
+
+	}
+	Node* left;
+	Node* right;
+};
+위와 같이 이니셜라이져를 통해 left, right 를 nullptr 로 초기화해주는 형태가 옳은 초기화 형태인가?
+
+2. 
+메모리 해제 저렇게 해주면 되나..?
+순서가 따로 있는것 같은데...
+
