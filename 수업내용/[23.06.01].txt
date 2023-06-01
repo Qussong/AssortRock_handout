@@ -1,0 +1,74 @@
+[23/06/01]
+
+---[질문]---
+
+[Level25]
+[문제3]
+1. 
+struct Node
+{
+	Node() : left(nullptr), right(nullptr)
+	{
+
+	}
+	Node* left;
+	Node* right;
+};
+위와 같이 이니셜라이져를 통해 left, right 를 nullptr 로 초기화해주는 형태가 옳은 초기화 형태인가?
+
+2. 
+메모리 해제 저렇게 해주면 되나..?
+순서가 따로 있는것 같은데...
+
+구조체 변수를 동적할당할 때 
+1번 : Node node = new Node();
+2번 : Node node = new Node;
+1번 방법이 2번 방법보다 가독성상 좋다
+
+구조체 내의 멤버 변수중 배열을 초기화 하는 형태
+struct Node
+{
+	Node()
+		: arr{}
+	{
+	}
+	int arr[10]
+};
+
+---[ 1교시 ]---
+[push_back]
+지금까지 Node 추가한 형태(뒤에 노드 추가)
+[push_front]
+head의 앞에 Node 추가
+ex)
+	Node* temp = new Node();
+	temp->ch = data;
+	temp->pNext = head;
+	head = temp;
+	
+[양방향 링크드 리스트]
+Doubly Linked List
+
+#include <list> :
+리스트를 사용하게 해주는 라이브러리
+해당 라이브러리가 구현 해주는 리스트는 양방향 링크드 리스트
+차후 사용하는 방법 알려준다
+
+---[ 2교시 ]---
+- stack, queue 만드는 방법 배운다.
+
+배열과 리스트를 기반으로 해서 좀더 큰 자료구조를 구현할 수 있다.
+스택, 큐, 그래프, 트리 가 그 예다. 배열로도 구현할 수 있고 리스트로도 구현할 수 있다.
+
+[스택?]
+마지막에 넣은것 부터 뺀다. LIFO
+First In Last Out
+게임 사용 예시 : 커맨드 입력, 화면 구현
+
+[큐?]
+한줄서기
+선입선출 (FIFO)
+First In First Out
+게임 사용 예시 : 롤 큐잡는거
+서버에선 패킷을 처리할 때 대부분 큐를 사용한다. (패킷 = 데이터 덩어리)
+서버에서 큐를 사용하는 이유 : 동시접속을 할 때 
