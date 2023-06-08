@@ -1,0 +1,120 @@
+[23/06/08]
+
+---[질문]---
+
+level28_문제5번, 7번)
+유형 : 이진트리 -> 일차원배열 
+
+
+---[1교시]---
+[DFS]
+- 단점 : 깊이를 우선적으로 하기에 효율이 덜 나올 수 있다.
+		이를 보안하기위해서 BFS가 나왔다.
+
+[BFS]
+- DFS가 세로로 찾는다고 하면 BFS는 가로로 찾는다.
+- 전부 순회한다는 관점에서 DFS와 BFS가 같지만, 특정 상황에 있어서 효율이 더 좋은게 있다.
+- 코딩 테스트에서 DFS와 BFS 구분하는 법 : 
+	제한사항 상 숫자가 크면 DFS, 작으면 BFS
+* astar?? : 또다른 길찾기 알고리즘
+- 사용이유 :
+	그래프/트리를 탐색하는데 DFS만으로는 시간적으로 많은 시간이 소요된다.
+	그래프 / 트리의 연결상태에 따라서 DFS보다 빠른 속도로 탐색하기 위해 BFS를 사용
+
+[코딩테스트]
+- D/P 문제는 공식이 정해져 있다. 때문에 공식을 모르면 못푼다.
+
+[BFS vs DFS]
+
+1. DFS
+	- 모든 노드를 탐색해야 할 때 BFS보다 더 빠른 속도를 낸다.
+	- 구현 소스가 짧다.
+	- 구현하기 더 어렵다 (재귀함수를 사용하기 때문)
+2. BFS
+	- 최소 level에 있는 노드를 찾아야 할 때 DFS보다 더 빠른 속도를 낸다.
+	- 이해하기 쉽지만 구현해야할 소스코드가 더 길다.
+
+[BFS 구현]
+- stl 큐 사용하기
+	#include <queue>
+	
+	queue<데이터타입> 변수이름;
+
+[실습]
+
+#include <iostream>
+#include <queue>
+using namespace std;
+/*
+	[학습내용]
+	- BFS 구현하기
+		: Queue를 활용한다.
+
+*/
+
+struct Node
+{
+public:
+	Node()
+		: val(0)
+		, level(0)
+	{
+	}
+	Node(int _val, int _level)
+		: val(_val)
+		, level(_level)
+	{
+	}
+	int val;
+	int level;
+};
+
+const int g_size = 6;
+char name[g_size + 1] = "EAURQY";
+// 트리 -> 인접행렬
+int matrix[g_size][g_size] =
+{
+	0,1,1,0,0,0,
+	0,0,0,1,1,0,
+	0,0,0,0,0,1,
+	0,0,0,0,0,0,
+	0,0,0,0,0,0,
+	0,0,0,0,0,0,
+};
+
+const bool yes = true;
+const bool no = false;
+
+int main(void)
+{
+	queue<Node> que;
+	
+	Node first;					// 첫번째 노드
+	que.push(first);			// 큐에 첫번째 노드를 넣어준다.
+
+	while (que.empty() == no)	// empty()는 비어있으면 true 아니면 false 반환
+	{
+		Node target = que.front();
+		for (int i = 0; i < g_size; ++i)
+		{
+			bool canIGo = (matrix[target.val][i] == 1);
+			if (canIGo == yes)
+			{
+				//Node newNode = Node(i, target.level + 1);
+				Node newNode = Node{ i, target.level + 1 };	//  중괄호 사용가능?
+				que.push(newNode);
+			}
+		}
+		char pathName = name[target.val];
+		cout << pathName << " ";
+		que.pop();	// 제일 앞의 노드에서 갈 수 있는 경로는 전부 탐색했기에 제거
+	}
+	
+	return 0;
+}
+
+---[2교시]---
+
+[길찾기 알고리즘]
+참고사이트 : 
+	https://qiao.github.io/PathFinding.js/visual/
