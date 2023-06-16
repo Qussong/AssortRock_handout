@@ -1,0 +1,125 @@
+[23/06/16]
+
+- 26일부터 Win32API 진도 나간다.
+
+---[1교시]---
+
+[생성자/소멸자]
+- 생성자 + '~'
+- 소멸자는 객체가 사라질때 호출된다
+
+
+[메모리 영역] 
+- 코드, 데이터, 힙, 스택
+- 일반적으로 스택영역은 1MB 로 설정되어 있으나 조정가능하다
+- 스택영역의 자료구조형태는 LIFO
+
+[객체지향 5대원칙]
+- 기본기를 탄탄히 다져두면 신경쓰지 않아도 된다.
+
+[this 포인터]
+- this 포인터에 의해 동일 클래스로 만든 여러 객체들이 구분되어 진다.
+ex)
+	class Unit
+	{
+		int hp;
+		void setHp(int _hp)
+		{
+			hp = _hp;
+		}
+	}
+
+	int main(void)
+	{
+		Unit user1;
+		Unit user2;
+		
+		user2.setHp(100);
+		
+		return 0;
+	}
+	위의 예제에서 user2.setHp에 의해 user2 객체의 hp 값이 100이된다. class Unit의 정의는 하나밖에 없는데 user1 과 user2의 구분이 되는 이유는 보이진 않지만 매개변수로 
+	'Unit* const this' 이 들어간다.
+	즉, 주소값이 들어가므로 구분이 가능하게 된다.
+
+- 클래스타입* const this
+	위와 같이 const가 들어가는 이유는 주소가 변경되지 않게하기 위해서다.
+
+[ const ]
+- const는 위치에 따라 의미가 달라진다.
+- 변수에 사용하는 경우 :
+	1. const int* num; -> 주소 변경 가능 but 참조값 변경 불가
+	2. int* const num; -> 참조값 변경 가능 but 주소 변경 불가
+
+- 함수에 사용하는 경우 :
+	1. void sample() const { }
+
+[ 오버로딩 ]
+- 참고 사이트 : 
+	https://en.cppreference.com/w/cpp/language/operators
+- 연산자 오버로딩 : 
+	메소드 명은 'operator' + '사용하고자 하는 연산자' 이다.
+	ex)
+	type operator+(type other)
+	{
+		type ret;
+		ret.x = x + other.x;
+		// ret.x = this->x + other.x;
+		ret.y = y + other.y;
+		// ret.y = this->y + other.y;
+		
+		return ret;
+	}
+	
+---[ 2교시 ]---
+- 상속
+- 가상함수
+- 템플릿클래스
+
+[ 상속 ]
+- 사용예제 :
+	ex)
+	class GameObject
+	{
+	public:
+		int x;
+		int y;
+	};
+
+	class Player : public GameObject	
+	// public 꼭 붙여주자 나중에 설명한다.
+	{
+	public:
+		int hp;
+		int mp;
+	};
+	
+	int main(void)
+	{
+		Player pl;
+		pl.hp;	// GameObject의 멤버변수
+		pl.mp;	// GameObject의 멤버변수
+		pl.x;	// Playaer의 멤버변수
+		pl.y;	// Playaer의 멤버변수
+		
+		return 0;
+	}
+	
+- 상속이 되었다면 부모클래스의 타입으로 자식클래스의 변수를 받을 수 있다.
+	->  문제점 : 
+	
+[ 가상함수 ]
+- 	가상함수 선언은 해두면
+	자식 클래스에서 같은 이름의 함수가 있을 경우에
+	오버라이드(덮어씌우기) 된다
+	
+[ string ]
+
+[ 비트연산자 ]
+
+[ 다음주 ]
+- 복사생성자
+- static
+- 가상함수 동작원리
+- 래퍼런스
+- STL (vector, list, map, set)
