@@ -1,0 +1,17 @@
+[23/06/20]
+
+---[1교시]---
+
+git bash 검색 -> 다운로드 및 설치 -> *.sln 위치에서 git bash here -> git init -> git config --global user.name "[이름]" -> git config --global user.email "[이메일]"
+
+[ branch ]
+- main branch = master
+- branch는 여러개일 수 있다.
+
+[ merge ]
+
+---[2교시]---
+
+[복사 생성자]
+- 객체를 인자값으로 넣어서 똑같은 값을 가지는 객체를 생성한다.
+- 이렇게 되면 생성자가 아닌 복사 생성자가 호출이 된다.
