@@ -67,11 +67,11 @@
 
 [ 키 입력 상태 확인 ]
 
-이전 프레임|현재 프레임|  상태	 |
-	x	|	x	|  none	 |
-	x	|	o	|  down	 |
-	o	|	o	|pressed |
-	o	|	x	|	up	 |
+이전 프레임|현재 프레임|   상태 	|
+	x	 |	x	  |  none	|
+	x	 |	o	  |  down	|
+	o	 |	o	  | pressed	|
+	o	 | 	x	  |	  up	|
 	
 ---[ 2교시 ]---
 
